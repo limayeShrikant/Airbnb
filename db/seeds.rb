@@ -9,13 +9,15 @@
 #   end
 
 
-propertiies = Property.create!({
-  name: 'Sample Property',
-  description: 'A beatutify place to stay for a cosy weekend',
-  headline: 'East Facing Lake view Room',
-  address_1: 'Pangong Lake, East Side',
-  address_2: 'Uptown funk',
-  city: 'Yenkong',
-  state: 'Binfuk',
-  country: 'lomania'
-})
+20.times do
+  Property.create!({
+  name: Faker::Lorem.unique.sentence(word_count: 3),
+  description: Faker::Lorem.paragraph(sentence_count: 10),
+  headline: Faker::Lorem.unique.sentence(word_count: 6),
+  address_1: Faker::Address.street_address,
+  address_2: Faker::Address.secondary_address,
+  city: Faker::Address.city,
+  state: Faker::Address.state,
+  country: Faker::Address.country
+  })
+end
